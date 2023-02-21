@@ -166,10 +166,10 @@ function perform_backups()
 		then
 			echo "Custom backup of $DATABASE"
 	
-			if ! pg_dump -Fc -h "$HOSTNAME" -p "$PORT" -U "$USERNAME" "$DATABASE" -f $FINAL_BACKUP_DIR"$DATABASE".custom.in_progress; then
+			if ! pg_dump -Fc -h "$HOSTNAME" -p "$PORT" -U "$USERNAME" "$DATABASE" -f $FINAL_BACKUP_DIR"$DATABASE".backup.in_progress; then
 				echo "[!!ERROR!!] Failed to produce custom backup database $DATABASE"
 			else
-				mv $FINAL_BACKUP_DIR"$DATABASE".custom.in_progress $FINAL_BACKUP_DIR"$DATABASE".custom
+				mv $FINAL_BACKUP_DIR"$DATABASE".backup.in_progress $FINAL_BACKUP_DIR"$DATABASE".backup
 			fi
 		fi
 
