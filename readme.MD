@@ -27,3 +27,10 @@ http://www.postgresql.org/docs/current/static/libpq-connect.html#AEN42532
 - copy file pg_backup.config.example to pg_backup.config
 - edit pg_backup.config based on your preference
 - execute `./pg_backup.sh` or `./pg_backup_rotated.sh`
+
+## Cron Job (Optional)
+
+if you want to run the backup process automatically, you can use cron job to execute the script.
+
+this is the example that run auto backup rotated daily at 23:00
+0 23 * * * /root/postgresql-auto-backup/pg_backup_rotated.sh > /root/postgresql-auto-backup/output.log 2>&1
